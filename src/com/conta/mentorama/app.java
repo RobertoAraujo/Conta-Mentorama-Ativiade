@@ -6,6 +6,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.conta.mentorama.classes.Conta;
+import com.conta.mentorama.classes.ContaCorrente;
+import com.conta.mentorama.classes.ContaPoupanca;
+import com.conta.mentorama.classes.ContaSalario;
 
 public class app {
 
@@ -65,11 +68,14 @@ public class app {
 					int digitoConta = new Random().nextInt(10) + 1;
 					int contadousuario = new Random().nextInt(100) + 1188;
 					
-//					contas.add(new ContaCorrente(nomeContaCorrente.next(), cpfContaCorrente.next(),
-//							saldoContaCorrente.nextDouble(),null,null));
+					int digitoAgencia = new Random().nextInt(10) + 1;
+					int agenciaDoUsuario = new Random().nextInt(100) + 1188;
+					
+					contas.add(new ContaCorrente(agenciaDoUsuario, digitoAgencia, recebSaldoContaCorrente, recebCpfConta, recebCpfConta));
 					
 					System.out.println("Nome Do Titular: " + recebNomeConta + "  CPF DO Titular: " + recebCpfConta
-							+ " Sua conta CC: " + contadousuario + "-" + digitoConta+"   " +"Digite o saldo inicial R$:  "+ recebSaldoContaCorrente);
+							+ " Sua conta CC: " + contadousuario + "-" + digitoConta+"   " +"Sua Agencia: "+agenciaDoUsuario+"-"+ digitoAgencia
+							+"  Digite o saldo inicial R$:  "+ recebSaldoContaCorrente);
 					
 					@SuppressWarnings("resource")
 					Scanner escolhas = new Scanner(System.in);
@@ -96,11 +102,21 @@ public class app {
 					System.out.println("Digite o CPf :");
 					String recebCpfConta = cpfContaSalario.next();
 	
+					@SuppressWarnings("resource")
+					Scanner saldoContaSalario = new Scanner(System.in);
+					System.out.println("Digite o Saldo :");
+					double recebSaldoContaSalario = saldoContaSalario.nextDouble();
+					
 					int digitoContaSalario = new Random().nextInt(100) + 10;
-					int contadousuario = new Random().nextInt(100) + 1188;
+					int contaContaSalariodousuario = new Random().nextInt(100) + 1188;
+					
+					int digitoAgencia = new Random().nextInt(10) + 1;
+					int agenciaDoUsuario = new Random().nextInt(100) + 1188;
+					
+					contas.add(new ContaSalario(agenciaDoUsuario, contaContaSalariodousuario, recebSaldoContaSalario, recebCpfConta, recebCpfConta));
 					
 					System.out.println("Nome Do Titular: " + recebNomeConta + "  CPF DO Titular: " + recebCpfConta
-							+ " Sua conta CC:" + contadousuario + "-" + digitoContaSalario);
+							+ " Sua conta CC:" + contaContaSalariodousuario + "-" + digitoContaSalario+"   " +"Sua Agencia: "+agenciaDoUsuario+"-"+ digitoAgencia);
 					
 					@SuppressWarnings("resource")
 					Scanner escolhas02 = new Scanner(System.in);
@@ -113,10 +129,84 @@ public class app {
 				break;
 
 			case 3:
-				
+				 int opcao03 = 0;
+					do {
+						System.out.println("**************** Bem Vindo Abra Sua Conta Poupanca *****************");
+						
+						@SuppressWarnings("resource")
+						Scanner nomeContaPoupanca= new Scanner(System.in);
+						System.out.println("Digite o nome do Titular :");
+						String recebNomeConta = nomeContaPoupanca.next();
+						
+						@SuppressWarnings("resource")
+						Scanner cpfContaPoupanca = new Scanner(System.in);
+						System.out.println("Digite o CPf :");
+						String recebCpfContaPoupanca = cpfContaPoupanca.next();
+						
+						@SuppressWarnings("resource")
+						Scanner saldoContaPoupanca = new Scanner(System.in);
+						System.out.println("Digite o Saldo :");
+						double recebSaldoContaPoupanca = saldoContaPoupanca.nextDouble();
+		
+						int digitoContaPoupanca = new Random().nextInt(10) + 1;
+						int contadousuarioPoupanca = new Random().nextInt(100) + 1188;
+						
+						int digitoAgenciaPoupanca = new Random().nextInt(10) + 1;
+						int agenciaDoUsuarioPoupanca = new Random().nextInt(100) + 1188;
+						
+						contas.add(new ContaPoupanca(agenciaDoUsuarioPoupanca, digitoAgenciaPoupanca, recebSaldoContaPoupanca, recebCpfContaPoupanca, recebCpfContaPoupanca));
+						
+						System.out.println("Nome Do Titular: " + recebNomeConta + "  CPF DO Titular: " + recebCpfContaPoupanca
+								+ " Sua conta CC: " + contadousuarioPoupanca + "-" + digitoContaPoupanca+"   " +"Sua Agencia: "+agenciaDoUsuarioPoupanca+"-"+ digitoAgenciaPoupanca
+								+"  Digite o saldo inicial R$:  "+ recebSaldoContaPoupanca);
+						
+						@SuppressWarnings("resource")
+						Scanner escolhas = new Scanner(System.in);
+						System.out.println("Deseja criar um nova conta ?");
+						System.out.println("1 para Não | Numero maior que 1 para Sim");
+						 opcao03 = escolhas.nextInt();			
+					} while ( opcao03 != 1);
+						System.out.println("você saiu");
 				break;
 			case 4:
-				
+				int opcao04 = 0;
+				do {
+					System.out.println("**************** Bem Vindo Abra Sua Conta Juridica *****************");
+					
+					@SuppressWarnings("resource")
+					Scanner nomeContaJuridica= new Scanner(System.in);
+					System.out.println("Digite o nome do Titular :");
+					String recebNomeContaJuridica = nomeContaJuridica.next();
+					
+					@SuppressWarnings("resource")
+					Scanner cpfContaJuridica = new Scanner(System.in);
+					System.out.println("Digite o CNPJ :");
+					String recebCpfContaJuridica = cpfContaJuridica.next();
+					
+					@SuppressWarnings("resource")
+					Scanner saldoContaJuridica = new Scanner(System.in);
+					System.out.println("Digite o Saldo :");
+					double recebSaldoContaJuridica = saldoContaJuridica.nextDouble();
+	
+					int digitoContaJuridica = new Random().nextInt(10) + 1;
+					int contadousuarioJuridica = new Random().nextInt(100) + 1188;
+					
+					int digitoAgenciaJuridica = new Random().nextInt(10) + 1;
+					int agenciaDoUsuarioJuridica = new Random().nextInt(100) + 1188;
+					
+					contas.add(new ContaPoupanca(agenciaDoUsuarioJuridica, digitoAgenciaJuridica, recebSaldoContaJuridica, recebCpfContaJuridica, recebCpfContaJuridica));
+					
+					System.out.println("Nome Do Titular: " + recebNomeContaJuridica + "  CPF DO Titular: " + recebCpfContaJuridica
+							+ " Sua conta CC: " + contadousuarioJuridica + "-" + digitoContaJuridica +"   " +"Sua Agencia: "+agenciaDoUsuarioJuridica +"-"+ digitoAgenciaJuridica
+							+"  Digite o saldo inicial R$:  "+ recebSaldoContaJuridica);
+					
+					@SuppressWarnings("resource")
+					Scanner escolhas = new Scanner(System.in);
+					System.out.println("Deseja criar um nova conta ?");
+					System.out.println("1 para Não | Numero maior que 1 para Sim");
+					 opcao04 = escolhas.nextInt();			
+				} while ( opcao04 != 1);
+					System.out.println("você saiu");
 				break;
 
 			default:
@@ -129,7 +219,7 @@ public class app {
 			System.out.println(val);
 			break;
 		case 2:
-
+			
 			break;
 		case 3:
 
